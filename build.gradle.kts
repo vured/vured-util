@@ -26,6 +26,7 @@ dependencies {
     compileOnly("ch.qos.logback", "logback-classic", Versions.LOGBACK)
 
     /** Application **/
+    compileOnly("io.insert-koin", "koin-core", Versions.KOIN)
     compileOnly("com.sksamuel.hoplite", "hoplite-core", Versions.HOPLITE)
     compileOnly("com.sksamuel.hoplite", "hoplite-hocon", Versions.HOPLITE)
 }
