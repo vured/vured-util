@@ -1,11 +1,22 @@
-import dev.jonaz.vured.core.gradle.Versions
+import dev.jonaz.vured.util.gradle.Versions
+import com.vanniktech.maven.publish.SonatypeHost
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.vanniktech:gradle-maven-publish-plugin:0.15.1")
+    }
+}
 
 plugins {
     kotlin("jvm") version "1.5.0"
     kotlin("kapt") version "1.5.0"
+    id("com.vanniktech.maven.publish") version "0.15.1"
 }
 
-group = "dev.jonaz.vured.core"
+group = "dev.jonaz.vured.util"
 
 repositories {
     mavenCentral()
@@ -34,5 +45,13 @@ dependencies {
 tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = "11"
+    }
+}
+
+allprojects {
+    plugins.withId("com.vanniktech.maven.publish") {
+        mavenPublish {
+            sonatypeHost = SonatypeHost.S01
+        }
     }
 }

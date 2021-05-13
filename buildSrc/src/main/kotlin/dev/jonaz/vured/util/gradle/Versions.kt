@@ -1,4 +1,4 @@
-package dev.jonaz.vured.core.gradle
+package dev.jonaz.vured.util.gradle
 
 object Versions {
     const val KOTLIN = "1.5.0"
