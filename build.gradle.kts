@@ -9,27 +9,21 @@ group = "dev.jonaz.vured.core"
 
 repositories {
     mavenCentral()
-    maven(url = "https://m2.dv8tion.net/releases")
+    maven("https://m2.dv8tion.net/releases")
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-
-    kapt("org.atteo.classindex", "classindex", Versions.CLASS_INDEX)
+    compileOnly(kotlin("stdlib-jdk8"))
 
     /** Kotlin **/
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Versions.KOTLIN_COROUTINES)
-    implementation("org.jetbrains.kotlin", "kotlin-reflect", Versions.KOTLIN)
+    compileOnly("org.jetbrains.kotlin", "kotlin-reflect", Versions.KOTLIN)
 
     /** Discord **/
-    implementation("com.sedmelluq", "lavaplayer", Versions.LAVA_PLAYER)
+    compileOnly("net.dv8tion", "JDA", Versions.JDA)
+    compileOnly("com.sedmelluq", "lavaplayer", Versions.LAVA_PLAYER)
 
     /** Logging **/
-    implementation("ch.qos.logback", "logback-classic", Versions.LOGBACK)
-
-    /** Application **/
-    implementation("io.insert-koin", "koin-core", Versions.KOIN)
-    implementation("org.atteo.classindex", "classindex", Versions.CLASS_INDEX)
+    compileOnly("ch.qos.logback", "logback-classic", Versions.LOGBACK)
 }
 
 tasks {
